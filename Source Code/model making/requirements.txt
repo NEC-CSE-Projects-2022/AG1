@@ -1,0 +1,4 @@
+flask>=2.0
+werkzeug>=2.0
+numpy
+# tensorflow>=2.10    # OPTIONAL: uncomment only if you plan to install TensorFlow locally
