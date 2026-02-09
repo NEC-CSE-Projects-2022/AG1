@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Results - OSCC Classification</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    /* ===== Global Styles ===== */
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      color: #333;
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.35)),  /* reduced overlay for clarity */
+        url('https://tse2.mm.bing.net/th/id/OIP.nk9DmqVjCGebNpIVPMJ05QHaDe?pid=Api&P=0&h=180')
+        no-repeat center center fixed;
+      background-size: cover;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-color: #dff3f2;
+    }
+
+    /* ===== Navigation Bar ===== */
+    nav {
+      background-color: rgba(0, 77, 64, 0.9);
+      padding: 15px 0;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(6px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 18px;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: #ffcc00;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background-color: #ffcc00;
+      transition: width 0.3s;
+    }
+
+    nav a:hover::after,
+    nav a.active::after {
+      width: 100%;
+    }
+
+    /* ===== Page Header ===== */
+    .results-container {
+      max-width: 1100px;
+      margin: 60px auto;
+      padding: 30px;
+      text-align: center;
+      background-color: rgba(255, 255, 255, 0.88);
+      border-radius: 20px;
+      box-shadow: 0 6px 25px rgba(0,0,0,0.15);
+      backdrop-filter: blur(5px);
+    }
+
+    .results-container h1 {
+      color: #004d40;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .results-container p {
+      font-size: 1.1rem;
+      color: #333;
+      margin-bottom: 50px;
+    }
+
+    /* ===== Metrics Section ===== */
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      justify-content: center;
+      margin-bottom: 50px;
+    }
+
+    .metric-card {
+      background-color: #ffffff;
+      border-radius: 15px;
+      padding: 25px 20px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .metric-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .metric-title {
+      color: #004d40;
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+    }
+
+    .metric-value {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #00796b;
+    }
+
+    /* ===== Chart Section ===== */
+    .chart-section {
+      background-color: rgba(255,255,255,0.9);
+      border-radius: 15px;
+      padding: 30px;
+      margin-bottom: 50px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .chart-section h2 {
+      color: #004d40;
+      margin-bottom: 20px;
+    }
+
+    .chart-placeholder {
+      background-color: #e0f2f1;
+      border-radius: 10px;
+      padding: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .chart-placeholder img {
+      width: 70%;
+      max-width: 600px;
+      border-radius: 10px;
+    }
+
+    /* ===== Sample Predictions Section ===== */
+    .predictions-section {
+      margin-top: 50px;
+      text-align: center;
+    }
+
+    .predictions-section h2 {
+      color: #004d40;
+      margin-bottom: 25px;
+    }
+
+    .prediction-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 25px;
+      justify-content: center;
+    }
+
+    .prediction-card {
+      background-color: rgba(255,255,255,0.95);
+      border-radius: 15px;
+      padding: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .prediction-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .prediction-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .prediction-card h3 {
+      color: #00796b;
+      margin: 10px 0 5px;
+    }
+
+    .prediction-card p {
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      text-align: center;
+      background-color: rgba(0, 77, 64, 0.9);
+      color: white;
+      padding: 15px 0;
+      font-size: 0.9rem;
+      margin-top: 60px;
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .results-container h1 {
+        font-size: 2rem;
+      }
+
+      .metric-card {
+        padding: 20px;
+      }
+
+      .chart-placeholder img {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="/">Home</a>
+    <a href="/dataset">Dataset</a>
+    <a href="/about">About</a>
+    <a href="/results" class="active">Results</a>
+    <a href="/contact">Contact</a>
+  </nav>
+
+  <!-- Results Container -->
+  <main class="results-container">
+    <h1>Model Evaluation Results</h1>
+    <p>Performance metrics and visualizations for the proposed <b>XSFN-Net</b> model on the OSCC dataset.</p>
+
+    <!-- Metrics Cards -->
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-title">Accuracy</div>
+        <div class="metric-value">91%</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-title">Precision</div>
+        <div class="metric-value">93.51%</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-title">Recall</div>
+        <div class="metric-value">93.01%</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-title">F1-Score</div>
+        <div class="metric-value">93.64%</div>
+      </div>
+    </div>
+
+    <!-- Chart Section -->
+    <div class="chart-section">
+      <h2>Model Performance Visualization</h2>
+      <div class="chart-placeholder">
+        <img src="{{ url_for('static', filename='confusion matrix.png') }}" alt="Confusion Matrix">
+      </div>
+    </div>
+
+    <!-- Sample Predictions -->
+    <div class="predictions-section">
+      <h2>Sample Predictions</h2>
+      <div class="prediction-grid">
+        <div class="prediction-card">
+          <img src="{{ url_for('static', filename='sample1.jpg') }}" alt="Predicted OSCC Image">
+          <h3>Prediction: OSCC</h3>
+          <p>Confidence: 91.2%</p>
+        </div>
+        <div class="prediction-card">
+          <img src="{{ url_for('static', filename='sample2.jpg') }}" alt="Predicted OSCC Image">
+          <h3>Prediction: Normal</h3>
+          <p>Confidence: 64.4%</p>
+        </div>
+        <div class="prediction-card">
+          <img src="{{ url_for('static', filename='sample3.jpg') }}" alt="Predicted OSCC Image">
+          <h3>Prediction: OSCC</h3>
+          <p>Confidence: 85.9%</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 XSFN-Net | All Rights Reserved
+  </footer>
+
+</body>
+</html>

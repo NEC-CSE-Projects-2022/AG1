@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>OSCC Classification</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/dataset">Dataset</a>
+    <a href="/about">About</a>
+    <a href="/results">Results</a>
+    <a href="/contact">Contact</a>
+  </nav>
+
+  <h1>OSCC Classification Web App</h1>
+
+  <form id="upload-form" enctype="multipart/form-data">
+    <input type="file" id="fileInput" name="file" accept="image/*" required>
+    <button type="submit">Upload & Predict</button>
+  </form>
+
+  <!-- Image Preview -->
+  <div style="margin-top: 20px;">
+    <h3>Uploaded Image:</h3>
+    <img id="preview" src="" alt="Image Preview"
+         style="display:none; max-width:300px; border:2px solid #ccc; padding:5px;">
+  </div>
+
+  <pre id="output"></pre>
+
+  <script>
+    const fileInput = document.getElementById('fileInput');
+    const preview = document.getElementById('preview');
+
+    // Show image preview when file is selected
+    fileInput.addEventListener('change', () => {
+      const file = fileInput.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = () => {
+          preview.src = reader.result;
+          preview.style.display = 'block';
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+
+    // Handle form submit
+    document.getElementById('upload-form').onsubmit = async (e) => {
+      e.preventDefault();
+      const formData = new FormData(e.target);
+
+      const res = await fetch('/predict', {
+        method: 'POST',
+        body: formData
+      });
+
+      const data = await res.json();
+      document.getElementById('output').textContent =
+        JSON.stringify(data, null, 2);
+    };
+  </script>
+</body>
+</html>
