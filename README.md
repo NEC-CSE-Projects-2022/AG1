@@ -22,10 +22,10 @@ Oral Squamous Cell Carcinoma (OSCC) is one of the most prevalent and aggressive 
 ---
 
 ## Paper Reference (Inspiration)
-👉 **[Paper Title : Xception Spiking Fractional Neural Network for OSCC Classification Based on Histopathological Images
-  – Author Names : Dr. S. N. Tirumala Rao,Pavitra Utalapalli,Vijaya Chilamkuri,Mounika Chevula,Arthi Achaibhar,S. Govinda Rao,Dr. Sireesha Moturi 
- ](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=11016737)
-Original conference/IEEE paper used as inspiration for the model.
+👉 Paper Title : XSFN-Net: A Hybrid Deep Spiking Fractional Neural Network for OSCC Classification in Histopathological Images
+   Author Names : Dr. S. N. Tirumala Rao,Pavitra Utalapalli,Vijaya Chilamkuri,Mounika Chevula,Arthi Achaibhar,S. Govinda Rao,Dr. Sireesha Moturi 
+ Reference Paper Link : (https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=11016737)
+  Original conference/IEEE paper used as inspiration for the model.
 
 ---
 
@@ -49,10 +49,10 @@ Comparative analysis with CNN and OralNet
 
 ## About the Project
 Give a simple explanation of:
-- What your project does
+- What your project does :
   Automatically classifies histopathological oral tissue images into Normal or OSCC categories using an advanced hybrid deep learning architecture.
   
-- Why it is useful
+- Why it is useful :
 Enables early detection of oral cancer
 
 Reduces diagnostic subjectivity
@@ -61,7 +61,7 @@ Supports clinicians with AI-assisted diagnosis
 
 Suitable for low-resource and clinical screening environments
 
-- General project workflow (input → processing → model → output)
+- General project workflow (input → processing → model → output) :
 
     Input Histopathological Image
         ↓
