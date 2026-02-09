@@ -2,7 +2,17 @@
 # 📦 Dataset Download & Info
 
 ## 🧠 Dataset Name
-*Add your dataset name here*
+OSCC HISTOPATHOLOGICAL DATASET
+
+## Dataset Details
+Dataset-1 comprises 1,224 histopathological images utilized for the classification of Oral Squamous Cell Carcinoma
+(OSCC). The images are collected at two different Magnification levels. At 100x Magnification, there are 89 images
+of normal oral Epithelium and 439 images of OSCC tissue.
+At 400x Magnification, the dataset includes 201 images of
+normal Epithelium and 495 images of OSCC. These images
+offer a diverse representation of both healthy and cancerous
+tissue, aiding in effective model training and evaluation for
+automated OSCC detection.
 
 ## 🔗 Download
 The dataset can be downloaded from Google Drive:
