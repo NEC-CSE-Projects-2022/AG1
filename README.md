@@ -22,9 +22,9 @@ Oral Squamous Cell Carcinoma (OSCC) is one of the most prevalent and aggressive 
 ---
 
 ## Paper Reference (Inspiration)
-👉 Paper Title : XSFN-Net: A Hybrid Deep Spiking Fractional Neural Network for OSCC Classification in Histopathological Images
+👉 Paper Title : Xception Spiking Fractional Neural Network for Oral Squamous Cell Carcinoma Classification Based on Histopathological Images
 
-   Author Names : Dr. S. N. Tirumala Rao,Pavitra Utalapalli,Vijaya Chilamkuri,Mounika Chevula,Arthi Achaibhar,S. Govinda Rao,Dr. Sireesha Moturi 
+   Author Names : 
    
  Reference Paper Link : (https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=11016737)
   Original conference/IEEE paper used as inspiration for the model.
