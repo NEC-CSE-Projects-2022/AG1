@@ -23,7 +23,9 @@ Oral Squamous Cell Carcinoma (OSCC) is one of the most prevalent and aggressive 
 
 ## Paper Reference (Inspiration)
 👉 Paper Title : XSFN-Net: A Hybrid Deep Spiking Fractional Neural Network for OSCC Classification in Histopathological Images
+
    Author Names : Dr. S. N. Tirumala Rao,Pavitra Utalapalli,Vijaya Chilamkuri,Mounika Chevula,Arthi Achaibhar,S. Govinda Rao,Dr. Sireesha Moturi 
+   
  Reference Paper Link : (https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=11016737)
   Original conference/IEEE paper used as inspiration for the model.
 
@@ -99,15 +101,15 @@ automated OSCC detection.
 ---
 
 ## Dependencies Used
-Python 3.8+
-TensorFlow
-PyTorch
-NumPy
-OpenCV
-scikit-learn
-SciPy
-Pandas
-Matplotlib
+Python 3.8+,
+TensorFlow,
+PyTorch,
+NumPy,
+OpenCV,
+scikit-learn,
+SciPy,
+Pandas,
+Matplotlib,
 Albumentations
 
 
@@ -165,12 +167,17 @@ Fold-wise performance analysis
 ---
 
 ## Results
-Model	Accuracy	Precision	Recall	F1-Score
-CNN	76%	74.5%	75.2%	74.8%
-OralNet	76.31%	75.1%	76.0%	75.5%
-XSFN-Net	91%	93.51%	93.01%	93.64%
 
----
+The results show that the XSFN-Net model significantly
+outperforms both CNN and OralNet across all performance
+metrics. Specifically, CNN achieved an average accuracy of
+76%, with precision at 74.5%, recall at 75.2%, and an F1-
+score of 74.8%. OralNet had a slight edge over CNN, reaching
+76.31% accuracy, 75.1% precision, 76.0% recall, and 75.5%
+F1-score. In contrast, XSFN-Net reached an accuracy of 91%.
+Its precision was 93.51%, recall was 93.01%, and the F1-score
+was 93.64%.
+
 
 ## Limitations 
 Limited dataset size
