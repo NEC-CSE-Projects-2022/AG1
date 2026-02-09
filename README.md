@@ -24,9 +24,9 @@ Oral Squamous Cell Carcinoma (OSCC) is one of the most prevalent and aggressive 
 ## Paper Reference (Inspiration)
 👉 Paper Title : Xception Spiking Fractional Neural Network for Oral Squamous Cell Carcinoma Classification Based on Histopathological Images
 
-   Author Names : 
+   Author Names : SINGARAJU RAMYA,R. I. MINU, AND K.T. Magesh
    
- Reference Paper Link : (https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=11016737)
+  Reference Paper Link : (https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=11016737)
   Original conference/IEEE paper used as inspiration for the model.
 
 ---
